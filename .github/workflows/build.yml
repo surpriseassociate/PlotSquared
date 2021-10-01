@@ -15,3 +15,9 @@ jobs:
           java-version: "16"
       - name: "Clean Build"
         run: "./gradlew clean build"
+      - name: Create a Release
+        uses: elgohr/Github-Release-Action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          args: MyReleaseMessage
